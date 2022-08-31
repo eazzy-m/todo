@@ -1,17 +1,17 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore} from '@reduxjs/toolkit';
+
+import todosReducer from "../redux/todoSlice";
+import modalReducer from "../redux/modalSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    todos: todosReducer,
+    modal: modalReducer
   },
 });
 
+
 export type AppDispatch = typeof store.dispatch;
 export type RootState = ReturnType<typeof store.getState>;
-export type AppThunk<ReturnType = void> = ThunkAction<
-  ReturnType,
-  RootState,
-  unknown,
-  Action<string>
->;
+export const selectTodos = (state:RootState) => state.todos.todos;
+export const openModal = (state:RootState) => state.modal.isOpen;

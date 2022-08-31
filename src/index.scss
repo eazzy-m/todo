@@ -9,6 +9,13 @@ body, *, *::before, *::after {
   -moz-osx-font-smoothing: grayscale;
 }
 
+$main-color: #AFE5C6;
+
+
+body {
+  background-color: $main-color;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
